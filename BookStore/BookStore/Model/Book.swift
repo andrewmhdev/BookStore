@@ -22,4 +22,15 @@ class Book {
         self.rating = rating
         self.synopsis = synopsis
     }
+} 
+
+extension Book: Equatable {
+    static func == (rhs: Book, lhs: Book) -> Bool {
+        return lhs.author == rhs.author &&
+        lhs.title == rhs.title &&
+        lhs.lastUpdated == rhs.lastUpdated &&
+        lhs.rating == rhs.rating &&
+        lhs.synopsis == rhs.synopsis 
+    }
+    
 }
