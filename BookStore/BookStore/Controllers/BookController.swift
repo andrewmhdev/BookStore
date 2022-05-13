@@ -21,8 +21,9 @@ class BookController {
         let bookEntry = Book(author: author, title: title, rating: rating, synopsis: synopsis)
         books.append(bookEntry)
     }
-    func update(bookEntryToUpdate: Book, title: String, rating: Double, synopsis: String) {
+    func update(bookEntryToUpdate: Book, title: String, author: String, rating: Double, synopsis: String) {
         bookEntryToUpdate.title = title
+        bookEntryToUpdate.author = author
         bookEntryToUpdate.rating = rating
         bookEntryToUpdate.synopsis = synopsis
     }

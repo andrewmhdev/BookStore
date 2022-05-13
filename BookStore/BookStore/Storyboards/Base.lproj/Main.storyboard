@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Mca-1l-K2W" customClass="BookTableViewCell" customModule="BookStore" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookCell" id="Mca-1l-K2W" customClass="BookTableViewCell" customModule="BookStore" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="53.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mca-1l-K2W" id="2ue-E9-Zcs">
@@ -62,7 +62,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="hHS-Sc-k34" kind="show" id="quD-YK-MDd"/>
+                                    <outlet property="bookAuthorLabel" destination="N4f-81-9eT" id="5sK-dJ-VNC"/>
+                                    <outlet property="bookRatingLabel" destination="NHr-pI-WBL" id="FYf-MZ-1ZV"/>
+                                    <outlet property="bookTitleLabel" destination="1Sz-uF-P6E" id="rmm-X4-0a3"/>
+                                    <segue destination="hHS-Sc-k34" kind="show" identifier="toDetailVC" id="quD-YK-MDd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -72,7 +75,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="kMG-RS-wF3">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="FDY-4N-U0g"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="FDY-4N-U0g">
+                            <connections>
+                                <segue destination="hHS-Sc-k34" kind="show" id="Cbq-J3-v67"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="thd-yk-O9i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -126,10 +133,9 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gXd-mV-a7g">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type your book synopsis here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gXd-mV-a7g">
                                 <rect key="frame" x="10" y="336" width="394" height="415"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -211,6 +217,9 @@
             <point key="canvasLocation" x="-2272" y="338"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="quD-YK-MDd"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="photo" catalog="system" width="128" height="93"/>
         <systemColor name="labelColor">
